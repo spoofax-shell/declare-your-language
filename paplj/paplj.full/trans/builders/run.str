@@ -40,7 +40,7 @@ rules
 
   run-program-basic-builder :
     (selected, position, ast, path, project-path) -> (filename, result)
-    with		
+    with
       filename := <guarantee-extension(|"run.aterm")> path;
       result := <strip-annos; debug(!"ast: "); runprogram> ast
 
@@ -50,11 +50,15 @@ rules
     with 
       (filename, result) := <run-program-basic-builder>
 
-          
   editor-run-program :
-    tuple@(selected, position, ast, path, project-path) -> (filename, <render-value>result)
+    (selected, position, ast, path, project-path) -> (filename, <render-value>result)
     with
-      (filename, R_init_V(result)) := <run-program-basic-builder> tuple
+      (filename, R_init_V(result)) := <run-program-basic-builder>;
+      message1                     := <debug(!"run.str: ")> selected;
+      message2                     := <debug(!"run.str: ")> position;
+      message3                     := <debug(!"run.str: ")> ast;
+      message4                     := <debug(!"run.str: ")> path;
+      message5                     := <debug(!"run.str: ")> project-path
 
 rules
   
