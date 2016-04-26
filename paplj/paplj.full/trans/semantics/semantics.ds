@@ -1,11 +1,15 @@
 module trans/semantics/semantics
 
+imports trans/semantics/values
 imports trans/semantics/interpret
+imports trans/semantics/runtime/environment
+imports trans/semantics/runtime/store
 
 
 // Entry point
 
 signature
+
   arrows
     Program -init-> V
 
@@ -16,5 +20,5 @@ rules
   
   p : Program -init-> v
   where
-    Map<String,Class> {}, Map<String, V> {}, This mkNullThis() |- p :: Map<Int, V> {} --> v :: Map<Int, V> _.    
+    C {}, Env {}, This mkNullThis() |- p :: Store {} --> v :: Store _.
 
