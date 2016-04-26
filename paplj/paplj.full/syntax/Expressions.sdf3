@@ -51,6 +51,7 @@ context-free syntax // variables
   ]
   
   Bind.Bind = [[Type] [ID] = [Expr]]
+  Bind.Bind = [[ID] = [Expr]]
   
 context-free syntax // objects
     

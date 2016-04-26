@@ -72,6 +72,10 @@ binding rules // variables
   Bind(t, x, e) : 
   	defines Variable x of type t
  	
+  Bind(x, e) :
+    defines Variable x of type t
+    where e has type t
+
   This() :
   	refers to Variable This()
   	
