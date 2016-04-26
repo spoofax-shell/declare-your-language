@@ -1,5 +1,6 @@
 module desugar-rules
 imports src-gen/signatures/Expressions-sig
+imports desugar/desugar-types
 
 rules
 	 
@@ -30,6 +31,11 @@ rules
   desugar-let :
   	Let([b1, b2 | bs], e) -> Let([b1], Let([b2 | bs], e))
   	
+  desugar-bind :
+    Bind(x, v) -> Bind(t, x, v)
+    where t := <get-type-na> v;
+          debug(!"type: ")
+
   desugar-or :
   	Or(e1, e2) -> If(e1, True(), e2)
   

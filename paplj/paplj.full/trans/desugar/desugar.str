@@ -10,7 +10,7 @@ strategies
   	innermost(desugar-let <+ desugar-do)
 	
   post-desugar =
-    innermost(desugar-do <+ desugar-get <+ desugar-set);
+    innermost(desugar-do <+ desugar-get <+ desugar-set <+ desugar-bind);
     resugar
     
   desugar-all = 
