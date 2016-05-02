@@ -5,6 +5,13 @@ imports runtime/editor/outline-library
 imports runtime/editor/origins
 
 rules
+  outline = custom-label-outline(to-outline-label, to-outline-node)
   
+  to-outline-node: Class(name, fields, _, _) -> Node(name, [Node("dummy", [])])
+  to-outline-label: Class(name, _, _, _) -> name
+  to-outline-label: Method(_, name, _, _) -> name
+  to-outline-label: Param(_, name) -> name
+  to-outline-label: Field(_, name) -> name
+  to-outline-label: Let(_, _) -> "Let"
+  to-outline-label: Bind(_, name, _) -> name
   to-outline-label = fail
-  
