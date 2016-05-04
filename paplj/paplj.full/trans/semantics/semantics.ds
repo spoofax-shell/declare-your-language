@@ -8,6 +8,7 @@ imports trans/semantics/interpret
 signature
   arrows
     Program -init-> V
+    Expr -init-> V
 
   native operators
     mkNullThis: This
@@ -16,5 +17,8 @@ rules
   
   p : Program -init-> v
   where
-    Map<String,Class> {}, Map<String, V> {}, This mkNullThis() |- p :: Map<Int, V> {} --> v :: Map<Int, V> _.    
+    C {}, Env {}, This mkNullThis() |- p :: Store {} --> v :: Store _.    
 
+  e : Expr -init-> v
+  where
+    C {}, Env {}, This mkNullThis() |- e :: Store {} --> v :: Store _.   

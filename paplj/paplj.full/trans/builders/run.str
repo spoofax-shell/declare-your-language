@@ -18,10 +18,16 @@ imports signatures/Classes-sig
 signature
   constructors
     R_init_V : Value -> Result
+
+strategies
+
+  runstrat: Program(a, b, c) -> <runprogram>
+  runstrat: e -> <runexpr>
     
 rules
 	
   external runprogram(|)
+  external runexpr(|)
   
   runprogram-value = runprogram; ?R_init_V(<render-value>)
  
@@ -42,7 +48,7 @@ rules
     (selected, position, ast, path, project-path) -> (filename, result)
     with
       filename := <guarantee-extension(|"run.aterm")> path;
-      result := <strip-annos; debug(!"ast: "); runprogram> ast
+      result := <strip-annos; debug(!"ast: "); runstrat> ast
 
                 
   editor-run-program-debug :

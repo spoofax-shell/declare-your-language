@@ -12,7 +12,7 @@ public class runprogram_0_0 extends Strategy {
 
 	@Override
 	public IStrategoTerm invoke(Context context, IStrategoTerm program) {
-		context.getIOAgent().printError("Debug: " + program);
+		context.getIOAgent().printError("runprogram: " + program);
 		return new Generic_A_Program(null, program).exec_init().toStrategoTerm(context.getFactory());
 	}
 }
