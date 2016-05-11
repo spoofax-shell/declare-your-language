@@ -12,7 +12,7 @@ language
   extensions : pj
 
   table         : target/metaborg/sdf.tbl
-  start symbols : Start
+  start symbols : Program Expr
   
   provider : target/metaborg/stratego.ctree
   provider : target/metaborg/stratego-javastrat.jar
