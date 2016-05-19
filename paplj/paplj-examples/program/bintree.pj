@@ -22,5 +22,12 @@ class Node  {
 } 
 
 run
-  new Node().value  
+  let node = new Node().init(0, new Node(), new Node())
+  in {
+    node.insert(3);
+    node.insert(4);
+    node.insert(2);
+    node.insert(8);
+    node
+  }
   

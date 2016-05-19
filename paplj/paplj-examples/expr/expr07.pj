@@ -1,0 +1,8 @@
+program expr07
+
+run
+  let
+    x = 42
+    y = 58
+  in
+    x + y
